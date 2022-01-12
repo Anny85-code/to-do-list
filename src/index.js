@@ -31,9 +31,9 @@ function render() {
       <div class="content third task">
        <ul class="inner">
         <li><input type="checkbox"  ${i.completed ? 'checked' : ''}/></li>
-        <li><input class="input" type="text" value='${
-          i.description
-        }' readonly /></li>
+        <li>
+        <input class="input" type="text" value='${i.description}' readonly />
+        </li>
         </ul>
        
        <ul><li> <button><i class="fa fa-ellipsis-v" aria-hidden="true"> </i></button></li></ul>
