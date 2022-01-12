@@ -20,7 +20,7 @@ const tasks = [
   },
 ];
 
-const render = () = {
+const render = () => {
   listContainer.innerHTML = '';
 
   tasks
@@ -42,6 +42,6 @@ const render = () = {
       <hr />
       `;
     });
-}
+};
 
 render();
