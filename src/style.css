@@ -1,0 +1,94 @@
+body {
+  background-color: gainsboro;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+  background-color: #fff;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 5px #000;
+}
+
+.content {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+.first {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.third {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fourth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fifth {
+  text-align: center;
+}
+
+.p {
+  text-align: center;
+  font-size: 25px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.input-field {
+  border: none;
+  font-size: 20px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  background-color: #fff;
+}
+
+p {
+  margin: 0;
+}
+
+.input {
+  border: none;
+  font-size: 17px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.inner {
+  display: flex;
+  padding-left: 0;
+  gap: 10px;
+}
