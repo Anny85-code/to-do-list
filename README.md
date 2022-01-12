@@ -20,7 +20,8 @@
    `cd awsome-books`
 - Install packages\
    `npm install`
-  `webpack install
+  `webpack install`
+  `npm start`
 
 ## Author
 

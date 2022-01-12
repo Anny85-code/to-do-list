@@ -6,7 +6,7 @@ const tasks = [
   {
     index: 0,
     description: 'Morning chores',
-    completed: true,
+    completed: false,
   },
   {
     index: 1,
@@ -20,7 +20,7 @@ const tasks = [
   },
 ];
 
-function render() {
+const render = () = {
   listContainer.innerHTML = '';
 
   tasks
