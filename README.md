@@ -17,7 +17,7 @@
 - clone the repository by running\
    `git clone https://github.com/Anny85-code/to-do-list.git`
 - navigate to the folder\
-   `cd awsome-books`
+   `cd to-do-list`
 - Install packages\
    `npm install`
   `webpack install`
