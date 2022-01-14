@@ -18,22 +18,25 @@ const addToDo = (toDo, id, done, trash) => {
   }
 
   const item = `
-   <div class="content third task">
-       <ul class="inner">
-        <li><input type="checkbox" class="checkbox"  ${
-          done ? 'checked' : ''
-        } job="complete" id="${id}"/></li>
+  <div class="content third task">
+    <ul class="inner">
+      <li>
+      <input type="checkbox" class="checkbox" ${
+        done ? 'checked' : ''
+      } job="complete" id="${id}"/>
+      </li>
         <li>
         <input class="input" type="text" value='${toDo}' id="${id}" readonly />
         
         </li>
         </ul>
-       
-       <ul id="${id}"><li> <button><i class="fa fa-trash-o de" job="delete" id="${id}"></i></button></li></ul>
-      
+    <ul id="${id}">
+      <li> 
+      <button><i class="fa fa-trash-o de" job="delete" id="${id}"></i></button>
+      </li>
+      </ul>
       </div>
-       <hr />
- `;
+      <hr />`;
 
   const position = 'beforeend';
 

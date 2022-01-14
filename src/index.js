@@ -5,7 +5,8 @@ const input = document.querySelector('.input-field');
 const addInput = document.querySelector('.fa-arrow-left');
 const refresh = document.querySelector('.fa-refresh');
 
-let LIST, id;
+let LIST;
+let id;
 const data = localStorage.getItem('TODO');
 
 if (data) {
@@ -18,7 +19,7 @@ if (data) {
   id = 0;
 }
 refresh.addEventListener('click', () => {
-  location.reload();
+  localStorage.reload();
 });
 
 const pushToDo = () => {
@@ -49,14 +50,14 @@ const pushToDo = () => {
     // add item to localstorage ( this code must be added where the LIST array is updated)
     localStorage.setItem('TODO', JSON.stringify(LIST));
 
-    id++;
+    id + 1;
   }
   input.value = '';
 };
 addInput.addEventListener('click', pushToDo);
 
 document.addEventListener('keyup', (event) => {
-  if (event.keyCode == 13) {
+  if (event.keyCode === 13) {
     pushToDo();
   }
 });
