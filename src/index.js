@@ -1,47 +1,62 @@
 import './style.css';
+import { loadList, addToDo } from './app.js';
 
-const listContainer = document.querySelector('.task-content');
+const input = document.querySelector('.input-field');
+const addInput = document.querySelector('.fa-arrow-left');
+const refresh = document.querySelector('.fa-refresh');
 
-const tasks = [
-  {
-    index: 0,
-    description: 'Morning chores',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'After chores',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'Evening chores',
-    completed: false,
-  },
-];
+let LIST, id;
+const data = localStorage.getItem('TODO');
 
-const render = () => {
-  listContainer.innerHTML = '';
+if (data) {
+  LIST = JSON.parse(data);
+  id = LIST.length; // set the id to the last one in the list
+  loadList(LIST); // load the list to the user interface
+} else {
+  // if data isn't empty
+  LIST = [];
+  id = 0;
+}
+refresh.addEventListener('click', () => {
+  location.reload();
+});
 
-  tasks
-    .sort((a, b) => a.index - b.index)
-    .forEach((i) => {
-      listContainer.innerHTML += `
-      
-      <div class="content third task">
-       <ul class="inner">
-        <li><input type="checkbox"  ${i.completed ? 'checked' : ''}/></li>
-        <li>
-        <input class="input" type="text" value='${i.description}' readonly />
-        </li>
-        </ul>
-       
-       <ul><li> <button><i class="fa fa-ellipsis-v" aria-hidden="true"> </i></button></li></ul>
-      
-      </div>
-      <hr />
-      `;
+const pushToDo = () => {
+  const data = localStorage.getItem('TODO');
+
+  if (data) {
+    LIST = JSON.parse(data);
+    id = LIST.length; // set the id to the last one in the list
+    loadList(LIST); // load the list to the user interface
+  } else {
+    // if data isn't empty
+    LIST = [];
+    id = 0;
+  }
+  const toDo = input.value;
+
+  // if the input isn't empty
+  if (toDo) {
+    addToDo(toDo, id, false, false);
+
+    LIST.push({
+      name: toDo,
+      id: id,
+      done: false,
+      trash: false,
     });
-};
 
-render();
+    // add item to localstorage ( this code must be added where the LIST array is updated)
+    localStorage.setItem('TODO', JSON.stringify(LIST));
+
+    id++;
+  }
+  input.value = '';
+};
+addInput.addEventListener('click', pushToDo);
+
+document.addEventListener('keyup', (event) => {
+  if (event.keyCode == 13) {
+    pushToDo();
+  }
+});
