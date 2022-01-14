@@ -42,7 +42,7 @@ const pushToDo = () => {
 
     LIST.push({
       name: toDo,
-      id: id,
+      id,
       done: false,
       trash: false,
     });
@@ -50,7 +50,7 @@ const pushToDo = () => {
     // add item to localstorage ( this code must be added where the LIST array is updated)
     localStorage.setItem('TODO', JSON.stringify(LIST));
 
-    id + 1;
+    id += 1;
   }
   input.value = '';
 };
