@@ -42,7 +42,7 @@ const pushToDo = () => {
 
     LIST.push({
       name: toDo,
-      id,
+      index: id,
       done: false,
       trash: false,
     });

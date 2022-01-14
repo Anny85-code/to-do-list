@@ -43,13 +43,11 @@ const completeToDo = (element) => {
 
 // remove to do
 const removeToDo = (element) => {
-  LIST = LIST.filter((t) => t.id !== Number(element.id));
-  console.log(LIST);
+  LIST = LIST.filter((t) => t.index !== Number(element.id));
   LIST = LIST.map((t, i) => {
-    t.id = i;
+    t.index = i;
     return t;
   });
-  console.log(LIST);
   localStorage.setItem('TODO', JSON.stringify(LIST));
   loadList(LIST);
 };
@@ -61,7 +59,7 @@ const loadList = (array) => {
 
   list.innerHTML = '';
   array.forEach((item) => {
-    addToDo(item.name, item.id, item.done, item.trash);
+    addToDo(item.name, item.index, item.done, item.trash);
   });
 
   document.querySelectorAll('li .input').forEach((b) => {
@@ -71,14 +69,13 @@ const loadList = (array) => {
     });
     b.addEventListener('change', () => {
       b.readOnly = true;
-      const task = LIST.find((t) => t.id === Number(b.id));
+      const task = LIST.find((t) => t.index === Number(b.id));
       task.name = b.value.trim();
       localStorage.setItem('TODO', JSON.stringify(LIST));
     });
   });
   document.querySelectorAll('li button').forEach((btn) => {
     btn.addEventListener('click', () => {
-      console.log('click');
       removeToDo(btn.parentNode.parentNode);
     });
   });
