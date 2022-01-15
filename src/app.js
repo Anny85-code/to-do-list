@@ -36,6 +36,16 @@ const addToDo = (toDo, id, done, trash) => {
   list.insertAdjacentHTML(position, item);
 };
 
+// remove to do
+const removeToDo = (element) => {
+  LIST = LIST.filter((t) => t.index !== Number(element.id));
+  LIST = LIST.map((t, i) => {
+    t.index = i;
+    return t;
+  });
+  localStorage.setItem('TODO', JSON.stringify(LIST));
+};
+
 const loadList = (array) => {
   if (array) {
     LIST = array;
@@ -67,19 +77,9 @@ const loadList = (array) => {
   document.querySelectorAll('li button').forEach((btn) => {
     btn.addEventListener('click', () => {
       removeToDo(btn.parentNode.parentNode);
+      loadList(LIST);
     });
   });
-};
-
-// remove to do
-const removeToDo = (element) => {
-  LIST = LIST.filter((t) => t.index !== Number(element.id));
-  LIST = LIST.map((t, i) => {
-    t.index = i;
-    return t;
-  });
-  localStorage.setItem('TODO', JSON.stringify(LIST));
-  loadList(LIST);
 };
 
 clear.addEventListener('click', () => {
