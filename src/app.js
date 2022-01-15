@@ -1,4 +1,7 @@
+import { clearAll, completeToDo } from './interact.js';
+
 const list = document.querySelector('.task-content');
+const clear = document.querySelector('.clear');
 
 let LIST = [];
 
@@ -33,14 +36,6 @@ const addToDo = (toDo, id, done, trash) => {
   list.insertAdjacentHTML(position, item);
 };
 
-const completeToDo = (element) => {
-  const COMPLETE = 'checkbox';
-  element.classList.toggle(COMPLETE);
-
-  LIST[element.id].done = element.checked;
-};
-/* eslint-disable */
-
 // remove to do
 const removeToDo = (element) => {
   LIST = LIST.filter((t) => t.index !== Number(element.id));
@@ -49,7 +44,6 @@ const removeToDo = (element) => {
     return t;
   });
   localStorage.setItem('TODO', JSON.stringify(LIST));
-  loadList(LIST);
 };
 
 const loadList = (array) => {
@@ -74,11 +68,25 @@ const loadList = (array) => {
       localStorage.setItem('TODO', JSON.stringify(LIST));
     });
   });
+
+  document.querySelectorAll('li .checkbox').forEach((b) => {
+    b.addEventListener('change', () => {
+      completeToDo(LIST, b);
+    });
+  });
   document.querySelectorAll('li button').forEach((btn) => {
     btn.addEventListener('click', () => {
       removeToDo(btn.parentNode.parentNode);
+      loadList(LIST);
     });
   });
 };
 
-export { loadList, addToDo, completeToDo, removeToDo };
+clear.addEventListener('click', () => {
+  const arr = clearAll(LIST);
+  loadList(arr);
+});
+
+export {
+  loadList, addToDo, completeToDo, removeToDo,
+};
