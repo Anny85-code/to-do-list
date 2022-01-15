@@ -87,4 +87,6 @@ clear.addEventListener('click', () => {
   loadList(arr);
 });
 
-export { loadList, addToDo, completeToDo, removeToDo };
+export {
+  loadList, addToDo, completeToDo, removeToDo 
+};
