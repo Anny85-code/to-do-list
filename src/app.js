@@ -1,4 +1,6 @@
+import { clearAll, completeToDo } from './interact';
 const list = document.querySelector('.task-content');
+const clear = document.querySelector('.clear');
 
 let LIST = [];
 
@@ -33,12 +35,6 @@ const addToDo = (toDo, id, done, trash) => {
   list.insertAdjacentHTML(position, item);
 };
 
-const completeToDo = (element) => {
-  const COMPLETE = 'checkbox';
-  element.classList.toggle(COMPLETE);
-
-  LIST[element.id].done = element.checked;
-};
 /* eslint-disable */
 
 // remove to do
@@ -74,11 +70,26 @@ const loadList = (array) => {
       localStorage.setItem('TODO', JSON.stringify(LIST));
     });
   });
+
+  document.querySelectorAll('li .checkbox').forEach((b) => {
+    b.addEventListener('change', () => {
+      const task = LIST.filter((t) => t.index === Number(b.id));
+      task.status = b.checked;
+      task.done = true;
+      // completeToDo(list);
+      localStorage.setItem('TODO', JSON.stringify(LIST));
+    });
+  });
   document.querySelectorAll('li button').forEach((btn) => {
     btn.addEventListener('click', () => {
       removeToDo(btn.parentNode.parentNode);
     });
   });
 };
+
+clear.addEventListener('click', () => {
+  const COMPLETE = 'checkbox';
+  clearAll(COMPLETE);
+});
 
 export { loadList, addToDo, completeToDo, removeToDo };
