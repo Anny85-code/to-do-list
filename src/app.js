@@ -70,7 +70,7 @@ const loadList = (array) => {
     });
   });
 };
-/
+
 // remove to do
 const removeToDo = (element) => {
   LIST = LIST.filter((t) => t.index !== Number(element.id));
