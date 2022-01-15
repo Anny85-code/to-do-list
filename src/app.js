@@ -73,11 +73,7 @@ const loadList = (array) => {
 
   document.querySelectorAll('li .checkbox').forEach((b) => {
     b.addEventListener('change', () => {
-      const task = LIST.filter((t) => t.index === Number(b.id));
-      task.status = b.checked;
-      task.done = true;
-      // completeToDo(list);
-      localStorage.setItem('TODO', JSON.stringify(LIST));
+      completeToDo(LIST, b);
     });
   });
   document.querySelectorAll('li button').forEach((btn) => {
@@ -88,8 +84,8 @@ const loadList = (array) => {
 };
 
 clear.addEventListener('click', () => {
-  const COMPLETE = 'checkbox';
-  clearAll(COMPLETE);
+  const arr = clearAll(LIST);
+  loadList(arr);
 });
 
 export { loadList, addToDo, completeToDo, removeToDo };

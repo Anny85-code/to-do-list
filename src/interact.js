@@ -1,13 +1,18 @@
-const completeToDo = (element) => {
-  const COMPLETE = 'checkbox';
-  element.classList.toggle(COMPLETE);
-  LIST[element.id].done = element.checked;
+const completeToDo = (LIST, element) => {
+  const task = LIST.find((t) => t.index === Number(element.id));
+  task.done = element.checked;
+  console.log(task);
+  localStorage.setItem('TODO', JSON.stringify(LIST));
 };
 
-const clearAll = (item) => {
-  const COMPLETE = 'checkbox';
-  if (item.id === COMPLETE) {
-    item.clear();
-  }
+const clearAll = (LIST) => {
+  LIST = LIST.filter((t) => !t.done);
+  LIST = LIST.map((t, i) => {
+    t.index = i;
+    return t;
+  });
+  localStorage.setItem('TODO', JSON.stringify(LIST));
+
+  return LIST;
 };
 export { completeToDo, clearAll };
