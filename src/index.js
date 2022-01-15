@@ -46,7 +46,7 @@ const pushToDo = () => {
       done: false,
       trash: false,
     });
-
+    loadList(LIST);
     // add item to localstorage ( this code must be added where the LIST array is updated)
     localStorage.setItem('TODO', JSON.stringify(LIST));
 
