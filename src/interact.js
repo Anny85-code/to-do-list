@@ -1,7 +1,6 @@
 const completeToDo = (LIST, element) => {
   const task = LIST.find((t) => t.index === Number(element.id));
   task.done = element.checked;
-  console.log(task);
   localStorage.setItem('TODO', JSON.stringify(LIST));
 };
 

@@ -1,4 +1,5 @@
-import { clearAll, completeToDo } from './interact';
+import { clearAll, completeToDo } from './interact.js';
+
 const list = document.querySelector('.task-content');
 const clear = document.querySelector('.clear');
 
