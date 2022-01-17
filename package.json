@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,8 @@
     "-": "0.0.1",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "cli": "^1.0.1",
-    "g": "^2.0.1"
+    "g": "^2.0.1",
+    "gh-pages": "^3.2.3"
   },
   "main": "webpack.config.js",
   "description": ""
