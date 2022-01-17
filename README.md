@@ -10,7 +10,7 @@
 
 ## Live Demo
 
-### UNAVAILABLE REQUIRES A SERVER
+[Click here] https://anny85-code.github.io/to-do-list/dist/
 
 ## Getting Started
 
