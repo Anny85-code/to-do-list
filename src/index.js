@@ -5,8 +5,8 @@ const input = document.querySelector('.input-field');
 const addInput = document.querySelector('.fa-arrow-left');
 const refresh = document.querySelector('.fa-refresh');
 
-let LIST;
-let id;
+let LIST = '';
+let id = '';
 const data = localStorage.getItem('TODO');
 
 if (data) {

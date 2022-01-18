@@ -5,6 +5,7 @@ const clear = document.querySelector('.clear');
 
 let LIST = [];
 
+// this function adds items to the todo list
 const addToDo = (toDo, id, done, trash) => {
   if (trash) {
     return;
@@ -36,7 +37,7 @@ const addToDo = (toDo, id, done, trash) => {
   list.insertAdjacentHTML(position, item);
 };
 
-// remove to do
+// remove todo
 const removeToDo = (element) => {
   LIST = LIST.filter((t) => t.index !== Number(element.id));
   LIST = LIST.map((t, i) => {
@@ -46,6 +47,7 @@ const removeToDo = (element) => {
   localStorage.setItem('TODO', JSON.stringify(LIST));
 };
 
+// this function loads the todo list items
 const loadList = (array) => {
   if (array) {
     LIST = array;
@@ -82,11 +84,10 @@ const loadList = (array) => {
   });
 };
 
+// this event clears the completed todo items
 clear.addEventListener('click', () => {
   const arr = clearAll(LIST);
   loadList(arr);
 });
 
-export {
-  loadList, addToDo, completeToDo, removeToDo,
-};
+export { loadList, addToDo, completeToDo, removeToDo };
