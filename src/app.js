@@ -90,5 +90,5 @@ clear.addEventListener('click', () => {
 });
 
 export {
-loadList, addToDo, completeToDo, removeToDo,
+  loadList, addToDo, completeToDo, removeToDo,
 };
