@@ -11,20 +11,28 @@
     <title>To do list</title>
   <script defer src="index.bundle.js"></script></head>
   <body>
+    <header class="container">
+      <ul class="content first">
+        <li><h2 class="heading">Today's To do</h2></li>
+        <li>
+          <button type="submit">
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+          </button>
+        </li>
+      </ul>
+    </header>
     <div class="container">
-      <div class="content first">
-        <h2 class="heading">Today's To do</h2>
-        <button><i class="fa fa-refresh" aria-hidden="true"></i></button>
-      </div>
       <hr />
       <div class="content second">
         <input type="text" class="input-field" placeholder="Add to your list" />
-        <button><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <button type="submit">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </button>
       </div>
       <hr />
       <div class="task-content"></div>
 
-      <div class="content fifth">
+      <div class="fifth">
         <p class="clear">Clear all completed</p>
       </div>
     </div>

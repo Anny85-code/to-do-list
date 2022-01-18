@@ -6,42 +6,13 @@ body {
 .container {
   background-color: #fff;
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0 auto;
   box-shadow: 5px 5px #000;
 }
 
 .content {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 20px 0 20px;
   padding: 10px;
-}
-
-.first {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.task {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.second {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.third {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.fourth {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -49,6 +20,7 @@ body {
 
 .fifth {
   text-align: center;
+  padding: 20px;
 }
 
 .clear {
@@ -63,6 +35,7 @@ h2 {
 .input-field {
   border: none;
   font-size: 20px;
+  width: 220px;
 }
 
 input:focus {
@@ -81,6 +54,7 @@ p {
 .input {
   border: none;
   font-size: 17px;
+  width: 150px;
 }
 
 ul {
