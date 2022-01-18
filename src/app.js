@@ -39,8 +39,7 @@ const addToDo = (toDo, id, done, trash) => {
 
 // remove todo
 const removeToDo = (element) => {
-  LIST = LIST.filter((t) => t.index !== Number(element.id));
-  LIST = LIST.map((t, i) => {
+  LIST = LIST.filter((t) => t.index !== Number(element.id)).map((t, i) => {
     t.index = i;
     return t;
   });
