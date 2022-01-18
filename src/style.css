@@ -7,28 +7,12 @@ body {
   background-color: #fff;
   width: 80%;
   margin: 0 auto 0 auto;
-  /* margin-right: auto; */
   box-shadow: 5px 5px #000;
 }
 
 .content {
   margin: 0 20px 0 20px;
   padding: 10px;
-}
-
-.first {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.task {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.second {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -36,6 +20,7 @@ body {
 
 .fifth {
   text-align: center;
+  padding: 20px;
 }
 
 .clear {
