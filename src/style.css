@@ -3,6 +3,13 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.head-main {
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: rgba(161, 12, 12, 0.774);
+}
+
 .container {
   background-color: #fff;
   width: 80%;
