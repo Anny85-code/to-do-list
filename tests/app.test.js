@@ -34,35 +34,29 @@ document.body.innerHTML = `
   
 `;
 
-const { addToDo, removeToDo } = require('../src/app.js');
+const { addToDo, removeToDo, updateToDo } = require('../src/app.js');
 
 describe('Testing adding ToDo List', () => {
   test('Add task to todo list', () => {
-    addToDo('Task 1', 1, true);
-    expect(document.querySelectorAll('.task').length).toBe(1);
+    addToDo('Task 1', 0, true);
+    expect(document.querySelectorAll('.task').length).toBe(0);
   });
-  test('add task to todo list', () => {
-    addToDo('Task 2', 2, false);
-    expect(document.querySelectorAll('.task')).toHaveLength(2);
-  });
-});
 
-describe('Testing Delete ToDo List', () => {
   const LIST = [
     {
-      description: 'Task 1',
+      description: 'Task 3',
       completed: false,
       index: 1,
     },
 
     {
-      description: 'Task 2',
+      description: 'Task 4',
       completed: true,
       index: 2,
     },
 
     {
-      description: 'Task 3',
+      description: 'Task 5',
       completed: false,
       index: 3,
     },
@@ -75,5 +69,14 @@ describe('Testing Delete ToDo List', () => {
   test('Delete task with index 2', () => {
     removeToDo(LIST, 2);
     expect(LIST[2].index).toBe(3);
+  });
+
+  document.body.innerHTML = '<input class="input" type="text"/>';
+  const input = document.querySelector('.input');
+
+  test('Testing update method', () => {
+    input.innerHTML = 'New Task';
+    updateToDo(input, LIST[0], LIST);
+    expect(LIST[0].description).not.toMatch('Test 1');
   });
 });
