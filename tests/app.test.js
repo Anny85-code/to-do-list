@@ -33,11 +33,26 @@ document.body.innerHTML = `
   
 `;
 
-const { loadList, addToDo, removeTodo } = require('../src/app.js');
+const { loadList, addToDo, removeToDo } = require('../src/app.js');
 
-describe('testing adding task', () => {
-  test('add task to todo list', () => {
-    addToDo('car', 1, true);
+describe('Testing adding ToDo List', () => {
+  test('Add task to todo list', () => {
+    addToDo('Task 1', 1, true);
     expect(document.querySelectorAll('.task').length).toBe(1);
+  });
+  test('add task to todo list', () => {
+    addToDo('Task 2', 2, false);
+    expect(document.querySelectorAll('.task').length).toBe(2);
+  });
+});
+
+describe('Testing Remove ToDo List', () => {
+  test('Remove task from todo list', () => {
+    const currentData = JSON.parse(localStorage.getItem('TODO'));
+    addToDo(currentData, 'Task 1');
+    addToDo(currentData, 'Task 2');
+    addToDo(currentData, 'Task 3');
+    const removeData = removeToDo(1);
+    expect(removeData).toBe(1);
   });
 });
