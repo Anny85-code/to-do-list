@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+
 document.body.innerHTML = `
   
     <header class="container head-main">
@@ -33,7 +34,7 @@ document.body.innerHTML = `
   
 `;
 
-const { loadList, addToDo, removeToDo } = require('../src/app.js');
+const { addToDo, removeToDo } = require('../src/app.js');
 
 describe('Testing adding ToDo List', () => {
   test('Add task to todo list', () => {
@@ -42,17 +43,37 @@ describe('Testing adding ToDo List', () => {
   });
   test('add task to todo list', () => {
     addToDo('Task 2', 2, false);
-    expect(document.querySelectorAll('.task').length).toBe(2);
+    expect(document.querySelectorAll('.task')).toHaveLength(2);
   });
 });
 
-describe('Testing Remove ToDo List', () => {
-  test('Remove task from todo list', () => {
-    const currentData = JSON.parse(localStorage.getItem('TODO'));
-    addToDo(currentData, 'Task 1');
-    addToDo(currentData, 'Task 2');
-    addToDo(currentData, 'Task 3');
-    const removeData = removeToDo(1);
-    expect(removeData).toBe(1);
+describe('Testing Delete ToDo List', () => {
+  const LIST = [
+    {
+      description: 'Task 1',
+      completed: false,
+      index: 1,
+    },
+
+    {
+      description: 'Task 2',
+      completed: true,
+      index: 2,
+    },
+
+    {
+      description: 'Task 3',
+      completed: false,
+      index: 3,
+    },
+  ];
+
+  test('Delete task with index 1', () => {
+    removeToDo(LIST, 1);
+    expect(LIST[1].index).toBe(2);
+  });
+  test('Delete task with index 2', () => {
+    removeToDo(LIST, 2);
+    expect(LIST[2].index).toBe(3);
   });
 });
