@@ -46,17 +46,7 @@ const removeToDo = (element) => {
   localStorage.setItem('TODO', JSON.stringify(LIST));
 };
 
-// this function loads the todo list items
-const loadList = (array) => {
-  if (array) {
-    LIST = array;
-  }
-
-  list.innerHTML = '';
-  array.forEach((item) => {
-    addToDo(item.name, item.index, item.done, item.trash);
-  });
-
+const updateToDo = () => {
   document.querySelectorAll('li .input').forEach((b) => {
     b.addEventListener('click', () => {
       b.readOnly = false;
@@ -69,6 +59,20 @@ const loadList = (array) => {
       localStorage.setItem('TODO', JSON.stringify(LIST));
     });
   });
+};
+
+// this function loads the todo list items
+const loadList = (array) => {
+  if (array) {
+    LIST = array;
+  }
+
+  list.innerHTML = '';
+  array.forEach((item) => {
+    addToDo(item.name, item.index, item.done, item.trash);
+  });
+
+  updateToDo();
 
   document.querySelectorAll('li .checkbox').forEach((b) => {
     b.addEventListener('change', () => {
@@ -90,5 +94,5 @@ clear.addEventListener('click', () => {
 });
 
 export {
-  loadList, addToDo, completeToDo, removeToDo,
+  loadList, addToDo, completeToDo, removeToDo, updateToDo,
 };
