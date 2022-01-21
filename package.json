@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack serve --open",
     "build": "webpack",
     "deploy": "gh-pages -d dist"
@@ -20,12 +20,14 @@
   },
   "homepage": "https://github.com/Anny85-code/Webpack-Exercise#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.5.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.4",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.4.7",
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
@@ -39,5 +41,8 @@
     "gh-pages": "^3.2.3"
   },
   "main": "webpack.config.js",
-  "description": ""
+  "description": "> \"To-do-list\" is a simple web application that displays a list of task and allows you to add and remove task from that list.\r > ![todolist](https://user-images.githubusercontent.com/87186552/149173898-f295f413-936e-465c-9aee-2e1ff4f12123.png)",
+  "directories": {
+    "test": "tests"
+  }
 }
