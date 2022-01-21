@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642755371619" clover="3.2.0">
-  <project timestamp="1642755371620" name="All files">
+<coverage generated="1642761545566" clover="3.2.0">
+  <project timestamp="1642761545566" name="All files">
     <metrics statements="49" coveredstatements="15" conditionals="6" coveredconditionals="3" methods="20" coveredmethods="2" elements="75" coveredelements="20" complexity="0" loc="49" ncloc="49" packages="1" files="2" classes="2"/>
-    <file name="app.js" path="D:\Microverse\Module 2\Week 3\to-do-list\src\app.js">
+    <file name="app.js" path="C:\Users\U A E\Documents\Microverse\Module 2\to-do-list\src\app.js">
       <metrics statements="39" coveredstatements="13" conditionals="6" coveredconditionals="3" methods="15" coveredmethods="2"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
@@ -44,7 +44,7 @@
       <line num="88" count="0" type="stmt"/>
       <line num="89" count="0" type="stmt"/>
     </file>
-    <file name="interact.js" path="D:\Microverse\Module 2\Week 3\to-do-list\src\interact.js">
+    <file name="interact.js" path="C:\Users\U A E\Documents\Microverse\Module 2\to-do-list\src\interact.js">
       <metrics statements="10" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="0" type="stmt"/>

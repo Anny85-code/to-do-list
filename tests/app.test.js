@@ -52,7 +52,7 @@ describe('Testing Remove ToDo List', () => {
     addToDo(currentData, 'Task 1');
     addToDo(currentData, 'Task 2');
     addToDo(currentData, 'Task 3');
-    const removeData = removeToDo(1);
-    expect(removeData).toBe(1);
+    removeToDo(currentData);
+    expect(document.querySelectorAll('.task').length).toEqual(0);
   });
 });
