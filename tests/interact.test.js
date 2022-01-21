@@ -5,33 +5,34 @@
 const { completeToDo, clearAll } = require('../src/interact.js');
 
 describe('Testing updating the completed status of a task', () => {
-  document.body.innerHTML = '<input type="checkbox" class="checkbox"/>';
+  document.body.innerHTML = '<input type="checkbox" id="2" class="checkbox"/>';
   const checkbox = document.querySelector('.checkbox');
   let LIST = [
     {
-      description: 'Task 1',
-      completed: false,
+      description: 'task 1',
+      done: false,
       index: 1,
     },
     {
       description: 'task 2',
-      completed: false,
+      done: false,
       index: 2,
     },
   ];
 
-  LIST = LIST.find((t) => t.index === Number(LIST.index));
   test('Update completed status to true', () => {
-    const currentTask = LIST[0].index;
-    currentTask.completed = true;
-    completeToDo(currentTask, LIST);
-    expect(LIST[1].completed).toBeTruthy();
+    checkbox.checked = true;
+    localStorage.setItem('TODO', JSON.stringify(LIST));
+
+    completeToDo(LIST, checkbox);
+    LIST = JSON.parse(localStorage.getItem('TODO'));
+    expect(LIST[1].done).toBeTruthy();
   });
 
   test('Change completed status to false', () => {
     checkbox.checked = false;
-    completeToDo(checkbox, LIST[1]);
-    expect(LIST[1].completed).toBeFalsy();
+    completeToDo(LIST, checkbox);
+    expect(LIST[1].done).toBeFalsy();
   });
 });
 
@@ -39,24 +40,25 @@ describe('Testing removing completed tasks', () => {
   let LIST = [
     {
       description: 'Task 1',
-      completed: true,
+      done: true,
       index: 1,
     },
     {
       description: 'task 2',
-      completed: false,
+      done: false,
       index: 2,
     },
     {
       description: 'Task 3',
-      completed: true,
+      done: true,
       index: 3,
     },
   ];
+  localStorage.setItem('TODO', JSON.stringify(LIST));
 
-  LIST = LIST.filter((task) => !task.completed);
   test('Check array length after clearing completed tasks', () => {
     clearAll(LIST);
+    LIST = JSON.parse(localStorage.getItem('TODO'));
     expect(LIST).toHaveLength(1);
   });
 
