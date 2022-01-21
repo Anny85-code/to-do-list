@@ -41,5 +41,8 @@
     "gh-pages": "^3.2.3"
   },
   "main": "webpack.config.js",
-  "description": ""
+  "description": "> \"To-do-list\" is a simple web application that displays a list of task and allows you to add and remove task from that list.\r > ![todolist](https://user-images.githubusercontent.com/87186552/149173898-f295f413-936e-465c-9aee-2e1ff4f12123.png)",
+  "directories": {
+    "test": "tests"
+  }
 }
