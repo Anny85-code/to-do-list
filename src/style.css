@@ -18,7 +18,6 @@ body {
 }
 
 .content {
-  margin: 0 20px 0 20px;
   padding: 10px;
   display: flex;
   flex-direction: row;
@@ -42,7 +41,7 @@ h2 {
 .input-field {
   border: none;
   font-size: 20px;
-  width: 220px;
+  width: 160px;
 }
 
 input:focus {
